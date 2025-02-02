@@ -1,1 +1,8 @@
 Project_2/api/model/artifacts/bert_text_classifier/model.safetensors filter=lfs diff=lfs merge=lfs -text
+at filter=lfs diff=lfs merge=lfs -text
+2.50.36 PM.mov filter=lfs diff=lfs merge=lfs -text
+Project_1/screenshots/Screen filter=lfs diff=lfs merge=lfs -text
+Recording filter=lfs diff=lfs merge=lfs -text
+2025-02-02 filter=lfs diff=lfs merge=lfs -text
+Project_1/screenshots/video_demo.mov filter=lfs diff=lfs merge=lfs -text
+Project_2/screenshots/video_demo.mov filter=lfs diff=lfs merge=lfs -text
