@@ -1,0 +1,15 @@
+# Ignore Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore Jupyter notebook checkpoints
+**/.ipynb_checkpoints/
+
+# Ignore environment files
+.env
+.venv
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
