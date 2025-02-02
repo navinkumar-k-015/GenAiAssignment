@@ -1,0 +1,13 @@
+spacy==3.7.2
+numpy==1.24.1
+nltk==3.8.1
+fastapi==0.88.0
+uvicorn==0.20.0
+transformers==4.38.2
+torch==2.5.1
+accelerate==0.32.1
+pandas
+numpy
+starlette
+starlette-prometheus
+python-json-logger
