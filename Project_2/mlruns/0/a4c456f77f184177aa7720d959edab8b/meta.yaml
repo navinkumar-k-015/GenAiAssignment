@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ubuntu/GenAiAssignment/mlruns/0/a4c456f77f184177aa7720d959edab8b/artifacts
+end_time: 1738413464716
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a4c456f77f184177aa7720d959edab8b
+run_name: capable-auk-759
+run_uuid: a4c456f77f184177aa7720d959edab8b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738412808434
+status: 3
+tags: []
+user_id: ubuntu

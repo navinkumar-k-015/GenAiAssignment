@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ubuntu/GenAiAssignment/mlruns/0/59c94185ef5148edaa635a78a702dc88/artifacts
+end_time: 1738413702306
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 59c94185ef5148edaa635a78a702dc88
+run_name: ./bert_classification
+run_uuid: 59c94185ef5148edaa635a78a702dc88
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738413610705
+status: 3
+tags: []
+user_id: ubuntu
