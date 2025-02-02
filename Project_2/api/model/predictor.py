@@ -15,6 +15,16 @@ from fastapi.responses import JSONResponse
 from starlette_prometheus import metrics, PrometheusMiddleware
 from fastapi.exceptions import RequestValidationError
 from utils.clean_text import preprocess_text
+import time
+
+app = FastAPI(title = "Ecommerce Text Classification",
+    description = " This API will classify ecommerce classes from text",
+    version = "1.0.0")
+
+logger = logging.getLogger(__name__)    
+app.exception_handler(RequestValidationError)
+app.add_middleware(PrometheusMiddleware)
+app.add_route("/metrics", metrics)
 
 
 def convert_np_to_native(obj):
@@ -36,14 +46,12 @@ def convert_np_to_native(obj):
 MODEL_PATH = './artifacts/bert_text_classifier'
 TOKENIZER_PATH = 'bert-base-uncased'
 
+logger.info("Model loading")
+
 model = BertForSequenceClassification.from_pretrained(MODEL_PATH, device_map="cpu")
 tokenizer = BertTokenizer.from_pretrained(TOKENIZER_PATH)
 
-app = FastAPI()
-logger = logging.getLogger(__name__)    
-app.exception_handler(RequestValidationError)
-app.add_middleware(PrometheusMiddleware)
-app.add_route("/metrics", metrics)
+logger.info("Model loading completed")
 
 
 def predict_class(text):
@@ -80,8 +88,11 @@ async def ping():
 @app.post("/invocations")
 def predict(text : str):
     try:
+        start_time = time.time()
+        logger.info(f"Received input:{text}")
+        logger.info(f"Prediction Strted")
         predicted_class, probabilities = predict_class(text)
-        
+        logger.info(f"Prediction Completed")
         output = {"predicted_class":predicted_class,
                  "probabilities":probabilities}
         
@@ -89,6 +100,9 @@ def predict(text : str):
                           "result":output}
         print(api_response)
         converted_response = convert_np_to_native(api_response)
+        end_time = time.time()
+        logger.info(
+        f"API call ended at {time.ctime(end_time)} (Duration: {end_time - start_time:.2f}s)")
         return converted_response
     except Exception as e:
         messgae = json.dumps({'error': str(e), "request": text})
