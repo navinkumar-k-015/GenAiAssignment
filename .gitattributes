@@ -1,0 +1,1 @@
+Project_2/api/model/artifacts/bert_text_classifier/model.safetensors filter=lfs diff=lfs merge=lfs -text
